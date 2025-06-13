@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         itemId++;
         const row = itemsTableBody.insertRow();
         row.innerHTML = `
-            <td><input type="text" class="item-name" placeholder="პროდუქტის დასახელება" data-id="${itemId}"></td>
-            <td><input type="number" class="item-quantity" value="1" min="1" data-id="${itemId}"></td>
-            <td><input type="number" class="item-price" value="0.00" min="0" step="0.01" data-id="${itemId}"></td>
-            <td class="item-total">0.00</td>
-            <td><button class="delete-item-btn" data-id="${itemId}">წაშლა</button></td>
+            <td data-label="დასახელება"><input type="text" class="item-name" placeholder="პროდუქტის დასახელება" data-id="${itemId}"></td>
+            <td data-label="რაოდენობა"><input type="number" class="item-quantity" value="1" min="1" data-id="${itemId}"></td>
+            <td data-label="ერთეულის ფასი (ლარი)"><input type="number" class="item-price" value="0.00" min="0" step="0.01" data-id="${itemId}"></td>
+            <td data-label="სულ (ლარი)" class="item-total">0.00</td>
+            <td data-label="მოქმედება"><button class="delete-item-btn" data-id="${itemId}">წაშლა</button></td>
         `;
         calculateTotals();
     }
