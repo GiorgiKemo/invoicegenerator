@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                     <div style="width: 48%;">
                         <p><strong>გამყიდველი:</strong></p>
-                        <p><strong>ინდმეწარმე:</strong> ${restaurantName}</p>
+                        <p><strong>ი/მ:</strong> ${restaurantName}</p>
                         <p><strong>მისამართი:</strong> ${restaurantAddress}</p>
                         <p><strong>ს/კ:</strong> ${restaurantTaxId}</p>
                         <p><strong>ანგარიშის ნომერი:</strong> ${restaurantBankAccount}</p>
