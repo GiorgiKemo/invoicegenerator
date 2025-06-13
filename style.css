@@ -213,3 +213,47 @@ button:hover {
         background-color: #eee; /* Light background for table headers */
     }
 }
+
+@media (max-width: 768px) {
+    .invoice-details {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .summary-label, .summary-value, .summary-currency {
+        justify-self: start;
+        text-align: left;
+    }
+
+    .summary-input {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
