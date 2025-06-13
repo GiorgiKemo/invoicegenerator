@@ -220,40 +220,86 @@ button:hover {
     }
 
     .summary-row {
-        grid-template-columns: 1fr;
-        gap: 5px;
-        text-align: left;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
 
-    .summary-label, .summary-value, .summary-currency {
-        justify-self: start;
+    .summary-label {
         text-align: left;
     }
 
     .summary-input {
-        text-align: left;
+        text-align: right;
+    }
+
+    .summary-value, .summary-currency {
+        text-align: right;
+        justify-self: end;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border: none;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    td input[type="text"], td input[type="number"] {
+        width: 50%;
     }
 }
 
 @media (max-width: 480px) {
     body {
         padding: 10px;
+        font-size: 14px;
     }
 
     .container {
-        padding: 10px;
+        padding: 15px;
     }
 
     h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
         font-size: 1.5rem;
     }
 
+    h2 {
+        font-size: 1.2rem;
+    }
+
     button {
-        padding: 8px 12px;
-        font-size: 14px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .summary-row {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-label, .summary-input, .summary-value, .summary-currency {
+        text-align: left;
+        justify-self: start;
     }
 }
