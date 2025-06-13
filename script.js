@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const invoiceNumber = invoiceNumberInput.value || 'N/A';
 
         let itemsHtml = `
-            <table style="width:100%; border-collapse: collapse; font-size: 10pt;">
+            <table style="width:100%; border-collapse: collapse;">
                 <thead>
                     <tr>
                         <th style="border: 1px solid #ddd; padding: 8px; text-align:left;">დასახელება</th>
@@ -132,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const invoiceHtml = `
             <div id="printableInvoice">
-                <h2 style="text-align:center; font-size: 14pt;">ინვოისი #${invoiceNumber}</h2>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 10pt;">
+                <h2 style="text-align:center;">ინვოისი #${invoiceNumber}</h2>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                     <div style="width: 48%;">
                         <p><strong>გამყიდველი:</strong></p>
                         <p><strong>ინდმეწარმე:</strong> ${restaurantName}</p>
@@ -148,23 +148,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>სტუმრების რაოდენობა:</strong> ${numberOfGuests}</p>
                     </div>
                 </div>
-                <p style="font-size: 10pt;"><strong>ინვოისის თარიღი:</strong> ${invoiceDate}</p>
+                <p><strong>ინვოისის თარიღი:</strong> ${invoiceDate}</p>
                 <hr>
-                <h3 style="font-size: 12pt;">შეძენილი პროდუქტები/მომსახურება:</h3>
+                <h3>შეძენილი პროდუქტები/მომსახურება:</h3>
                 ${itemsHtml}
                 <hr>
-                <div style="text-align: right; margin-top: 20px; font-size: 10pt;">
+                <div style="text-align: right; margin-top: 20px;">
                     <p><strong>შუალედური ჯამი:</strong> ${subtotalEl.textContent} ლარი</p>
                     <p><strong>დღგ (${taxRateInput.value}%):</strong> ${taxAmountEl.textContent} ლარი</p>
                     <p><strong>სულ გადასახდელი:</strong> ${totalAmountEl.textContent} ლარი</p>
                 </div>
-                <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; display: flex; justify-content: center; font-size: 10pt;">
+                <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; display: flex; justify-content: center;">
                     <div style="text-align: center;">
                         <p>_________________________</p>
                         <p>(ხელმოწერა)</p>
                     </div>
                 </div>
-                <p style="text-align:center; margin-top: 30px; font-size: 9pt;">გმადლობთ, რომ სარგებლობთ ჩვენი მომსახურებით!</p>
+                <p style="text-align:center; margin-top: 30px;">გმადლობთ, რომ სარგებლობთ ჩვენი მომსახურებით!</p>
             </div>
         `;
 
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         body {
                             margin: 20px; /* Standard print margin */
                             font-family: "Sylfaen", "DejaVu Sans", "Arial Unicode MS", sans-serif;
-                            font-size: 10pt;
+                            font-size: 14pt;
                             color: black; /* Ensure text is black for printing */
                         }
                         table, th, td {
