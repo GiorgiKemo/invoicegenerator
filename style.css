@@ -1,0 +1,215 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+.invoice-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Changed to a fixed 2-column layout */
+    gap: 20px; /* Increased gap slightly */
+    margin-bottom: 20px;
+}
+
+.invoice-details div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; /* Ensure inputs take full width of their grid cell */
+}
+
+hr { /* Style for the horizontal rule */
+    grid-column: 1 / -1; /* Make HR span both columns */
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 10px 0; /* Add some vertical margin */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+td input[type="text"],
+td input[type="number"] {
+    width: calc(100% - 16px); /* Adjust for padding */
+}
+
+.summary {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: grid; /* Make the .summary container a grid itself */
+    gap: 8px; /* Gap between rows */
+}
+
+.summary-row {
+    display: grid;
+    /*
+      Col 1 (Label): Flexible, takes available space, min 150px.
+      Col 2 (Input/Spacer): Fixed width for the input field or its spacer.
+      Col 3 (Value): Sizes to its content (e.g., "0.00").
+      Col 4 (Currency): Sizes to its content (e.g., "ლარი").
+    */
+    grid-template-columns: minmax(150px, 1fr) 100px max-content max-content;
+    gap: 10px;
+    align-items: center; /* Vertically align items within the row */
+}
+
+.summary-label {
+    /* grid-column is not needed as it's the first item in the flow */
+    text-align: left;
+    font-weight: bold;
+    justify-self: start; /* Align label to the start of its cell */
+}
+
+.summary-input {
+    /* grid-column is not needed */
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: right;
+}
+
+.summary-input-spacer {
+    /* grid-column is not needed */
+    /* This spacer is intentionally empty to align rows without an input */
+    min-height: 30px; /* Or match input height exactly if known */
+    /* visibility: hidden; /* Can be used if it should not affect layout beyond spacing */
+}
+
+.summary-value {
+    /* grid-column is not needed */
+    text-align: right;
+    font-weight: bold;
+    justify-self: end; /* Align value to the end of its cell */
+}
+
+.summary-currency {
+    /* grid-column is not needed */
+    text-align: left;
+    justify-self: start; /* Align currency to the start of its cell */
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#printInvoiceBtn {
+    background-color: #28a745;
+}
+
+#printInvoiceBtn:hover {
+    background-color: #1e7e34;
+}
+
+.delete-item-btn {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.delete-item-btn:hover {
+    background-color: #c82333;
+}
+
+.invoice-output {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+    font-size: 2em;
+}
+
+.invoice-output h2 {
+    margin-top: 0;
+}
+
+@media print {
+    body {
+        background-color: #fff;
+        padding: 0;
+        font-size: 12pt;
+    }
+    .container {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 0;
+    }
+    button, input[type="text"], input[type="date"], input[type="number"], #addItemBtn, #generateInvoiceBtn, #printInvoiceBtn, .delete-item-btn, .invoice-details input, .summary input {
+        display: none !important; /* Hide all interactive elements for printing */
+    }
+    .invoice-details div label, .summary div label { /* Ensure labels are still visible */
+        display: inline-block;
+    }
+    .invoice-output {
+        border: none;
+        padding: 0;
+        margin-top: 0;
+        background-color: #fff;
+        display: block !important; /* Ensure output is visible */
+    }
+    table, th, td {
+        border: 1px solid #000; /* Make table borders visible for print */
+    }
+    th {
+        background-color: #eee; /* Light background for table headers */
+    }
+}
