@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ინვოისის გენერატორი</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>რესტორნის ინვოისი</h1>
+
+        <div class="invoice-details">
+            <div>
+                <label for="restaurantName">ინდ მეწარმე (დასახელება):</label>
+                <input type="text" id="restaurantName" placeholder="ინდ მეწარმის სახელი">
+            </div>
+            <div>
+                <label for="restaurantAddress">რესტორნის მისამართი:</label>
+                <input type="text" id="restaurantAddress" placeholder="მისამართი">
+            </div>
+            <div>
+                <label for="restaurantTaxId">სამსახურის საიდენტიფიკაციო კოდი:</label>
+                <input type="text" id="restaurantTaxId" placeholder="ს/კ">
+            </div>
+            <div>
+                <label for="restaurantBankAccount">ანგარიშის ნომერი (რესტორნის):</label>
+                <input type="text" id="restaurantBankAccount" placeholder="ანგარიშის ნომერი">
+            </div>
+            <hr style="grid-column: 1 / -1;">
+            <div>
+                <label for="customerName">მომხმარებლის სახელი/ორგანიზაცია:</label>
+                <input type="text" id="customerName" placeholder="სახელი, გვარი ან ორგანიზაციის სახელი">
+            </div>
+             <div>
+                <label for="customerTaxId">დამკვეთის საიდენტიფიკაციო კოდი:</label>
+                <input type="text" id="customerTaxId" placeholder="პირადი ნომერი ან ს/კ">
+            </div>
+            <div>
+                <label for="numberOfGuests">სტუმრის რაოდენობა:</label>
+                <input type="number" id="numberOfGuests" placeholder="რაოდენობა" min="1">
+            </div>
+            <div>
+                <label for="invoiceDate">თარიღი:</label>
+                <input type="date" id="invoiceDate">
+            </div>
+            <div>
+                <label for="invoiceNumber">ინვოისის ნომერი:</label>
+                <input type="text" id="invoiceNumber" placeholder="მაგ: INV-001">
+            </div>
+        </div>
+
+        <h2>პროდუქტები/მომსახურება</h2>
+        <table id="itemsTable">
+            <thead>
+                <tr>
+                    <th>დასახელება</th>
+                    <th>რაოდენობა</th>
+                    <th>ერთეულის ფასი (ლარი)</th>
+                    <th>სულ (ლარი)</th>
+                    <th>მოქმედება</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Item rows will be added here by JavaScript -->
+            </tbody>
+        </table>
+        <button id="addItemBtn">პროდუქტის დამატება</button>
+
+        <div class="summary">
+            <div class="summary-row">
+                <label class="summary-label">შუალედური ჯამი:</label>
+                <span class="summary-input-spacer"></span> <!-- Empty spacer for alignment -->
+                <span id="subtotal" class="summary-value">0.00</span>
+                <span class="summary-currency">ლარი</span>
+            </div>
+            <div class="summary-row">
+                <label for="taxRate" class="summary-label">დღგ (%):</label>
+                <input type="number" id="taxRate" value="18" min="0" class="summary-input">
+                <span id="taxAmount" class="summary-value">0.00</span>
+                <span class="summary-currency">ლარი</span>
+            </div>
+            <div class="summary-row">
+                <label class="summary-label">სულ გადასახდელი:</label>
+                <span class="summary-input-spacer"></span> <!-- Empty spacer for alignment -->
+                <span id="totalAmount" class="summary-value">0.00</span>
+                <span class="summary-currency">ლარი</span>
+            </div>
+        </div>
+
+        <button id="generateInvoiceBtn">ინვოისის გენერირება</button>
+        <button id="printInvoiceBtn">ინვოისის ამობეჭდვა</button>
+
+        <div class="invoice-output" id="invoiceOutput" style="display:none;">
+            <!-- Generated invoice will appear here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
